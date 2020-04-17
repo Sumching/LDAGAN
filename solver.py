@@ -57,7 +57,7 @@ class GANModel():
 
     def set_input(self, imgs_eachgen, data, y):
         """Prepare data to be sent to the network"""
-        if self.network_name == "vagan-based":
+        if self.network_name == "vgan-based":
             imgs_eachgen = imgs_eachgen * self.num
         z = torch.randn(imgs_eachgen, self.z_dim)
         self.z = z.to(self.device)
@@ -151,7 +151,7 @@ class GANModel():
             clamp_reg_param = max(self.reg_param, 1e-5)
             reg_raw = reg / clamp_reg_param
             self.loss_D = dloss
-            D_x, D_G_z1 = dloss_real,dloss_fake
+            D_x, D_G_z1 = dloss_real,dloss_fake
         return D_x, D_G_z1
         
     def em_fn(self, dfake):
@@ -211,6 +211,7 @@ class GANModel():
     def optimize_parametersG(self):
         """Optimize the parameters of generator"""
         self.set_requires_grad(self.D, False)
+        self.set_requires_grad(self.G, True)
         self.optimizer_G.zero_grad()
         self.forward()
         D_G_z2 = self.backward_G()
