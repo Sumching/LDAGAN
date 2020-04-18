@@ -1,4 +1,4 @@
-network_name: vgan-1024
+network_name: vgan-based
 img_size: 1024
 crop_size: 1024
 dataset_name: celeba-1024
@@ -10,7 +10,7 @@ gen_nums: 3
 lr: 0.0001
 z_dim: 256
 alpha_init: 1
-max_step: 100
+max_step: 250000
 critic: 1
 save_step: 5
 backup_every: 100000
