@@ -10,7 +10,7 @@ gen_nums: 5
 lr: 0.0001
 z_dim: 256
 alpha_init: 1
-max_step: 100
+max_step: 633100
 critic: 1
 save_step: 5
 backup_every: 100000
