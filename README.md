@@ -15,7 +15,7 @@ python train.py --yaml ./config/dataset_name.yml
 
 To generate samples for evaluation, use
 ```
-python test.py --yaml ./config/dataset_name.yml --checkpoint ./output/checkpoint/50000_G.pth --output_name outputname
+python test.py --yaml ./config/dataset_name.yml --checkpoint ./output/checkpoint/500000_G.pth --output_name outputname
 ```
 
 It will return a ".npy" file contains 50,000 samples by default.
@@ -30,7 +30,7 @@ It will return a ".npy" file contains 50,000 samples by default.
 
 **./utils/InceptionScore_and_FID.py**
 
-This file contains the implementation of functions to calculate the Inception Score and the FID. It compares the "./npy" file mentioned above with pre-calculated statistic:
+This file contains the implementation of functions to calculate the Inception Score and the FID. It compares the ".npy" file mentioned above with pre-calculated statistic:
 
 ```
 python ./utils/InceptionScore_and_FID.py --input npy_filename --stats pre_calculated_stats
